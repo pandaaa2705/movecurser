@@ -1,0 +1,23 @@
+{
+  "name": "movecursor",
+  "version": "1.0.0",
+  "description": "Windows desktop controller for virtual cursor movement in Chrome",
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack:win": "electron-builder --win nsis --x64 --config.win.signAndEditExecutable=false",
+    "test": "node --test"
+  },
+  "dependencies": { "ws": "^8.18.0" },
+  "devDependencies": { "electron": "^33.2.1", "electron-builder": "^25.1.8" },
+  "build": {
+    "appId": "com.movecursor.desktop",
+    "productName": "MoveCursor",
+    "directories": { "output": "release" },
+    "files": ["desktop/**/*", "shared/**/*", "package.json", "node_modules/ws/**/*"],
+    "extraResources": [{ "from": "extension", "to": "extension" }],
+    "asar": true,
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }], "artifactName": "MoveCursor-Setup.exe" },
+    "nsis": { "oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true, "shortcutName": "MoveCursor", "deleteAppDataOnUninstall": false }
+  }
+}

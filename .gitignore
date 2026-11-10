@@ -1,0 +1,7 @@
+node_modules/
+.tools/
+release/
+release-click/
+dist/
+out/
+*.log

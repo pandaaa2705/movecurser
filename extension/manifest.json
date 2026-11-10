@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "MoveCursor",
+  "version": "1.0.0",
+  "description": "Draw a region and animate a virtual cursor inside it.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:17391/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "MoveCursor" }
+}
